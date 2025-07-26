@@ -1,4 +1,5 @@
 # Library Management System
+import pandas as pd
 
 booklist=[]
 
@@ -54,6 +55,11 @@ def updatebook():
     else: 
      print("Book not Found")
 
+def savetocsv():
+    df=pd.DataFrame(booklist)
+    df.to_csv('library.csv',index=False)
+
+
 def main():
     print("Welcome to the Library Management System")
     while(1):
@@ -82,6 +88,7 @@ def main():
                 updatebook()
                elif choice == 6:
                  print("Exiting Library Management System")
+                 savetocsv()
                  break
                else:
                    print("Invalid Choice")
