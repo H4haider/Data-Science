@@ -1,4 +1,5 @@
 # Library Management System
+import json
 import pandas as pd
 
 booklist=[]
@@ -59,6 +60,10 @@ def savetocsv():
     df=pd.DataFrame(booklist)
     df.to_csv('library.csv',index=False)
 
+def savetojson():
+    with open('library.json', 'w') as f:
+        json.dump(booklist, f)
+
 
 def main():
     print("Welcome to the Library Management System")
@@ -89,6 +94,7 @@ def main():
                elif choice == 6:
                  print("Exiting Library Management System")
                  savetocsv()
+                 savetojson()
                  break
                else:
                    print("Invalid Choice")
